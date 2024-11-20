@@ -22,6 +22,12 @@ const posts = [
 ]
 
 const app = express();
+
+app.use((req, res, next) => {
+  console.log(`Requisição recebida: ${req.method} - ${req.url}`);
+  next(); // Passa para o próximo
+});
+
 app.use(express.json());
 
 
