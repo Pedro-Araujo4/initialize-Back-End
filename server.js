@@ -1,10 +1,9 @@
 import express from "express";
-import conectarAoBanco from "./src/config/dbConfig.js";
-await conectarAoBanco(process.env.STRING_CONEXAO)
-
+import routes from "./src/routes/postsRoutes.js";
 
 const app = express();
-app.use(express.json());
+
+routes(app)
 
 app.listen(3000, () => {
     console.log("Servidor escutando...");
